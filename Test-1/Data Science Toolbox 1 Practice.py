@@ -143,3 +143,57 @@ def convert_temp(x):
 
 convert_temp(temp)
 print(temp)
+
+print('\nThis is new code\n')
+
+x = ['uer', 'gee', 'se', 'aeee']
+n_v = map(lambda w: w.count('e'), x)
+print(list(n_v))
+
+print('\nThis is new code\n')
+
+def add_numbers(x, y, z):
+    a = x + y + z
+    return a
+
+print(add_numbers(2, 3, 4))
+
+print('\nThis is new code\n')
+
+def cnvt_yrd(y, feet=True):
+    if feet is True:
+        new_y = y * 3
+    else:
+        new_y = y * 36
+    return new_y
+
+print(cnvt_yrd(20))
+
+print('\nThis is new code\n')
+
+def easy_print(**x):
+    for key, value in x.items():
+        print('The value of ' + str(key) + ' is ' + str(value))
+
+easy_print(a = 10)
+
+print('\nThis is new code\n')
+
+y = print(float('6'))
+
+print(type(y))
+
+print('\nThis is new code\n')
+
+def add_min(x, y):
+    z = min(x) + min(y)
+    return z
+
+print(add_min([9, 3], [2, 4]))
+
+print('\nThis is new code\n')
+
+def say_hello():
+    print('Hello World!')
+
+say_hello()
