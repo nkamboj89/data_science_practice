@@ -14,7 +14,7 @@ apps = apps_with_duplicates.drop_duplicates()
 print('Total number of apps in the dataset = ', apps.App.count())
 
 # Have a look at a random sample of 5 rows
-n = 5
+n = 3
 apps.sample(n)
 
 
