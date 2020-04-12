@@ -137,14 +137,113 @@ import pandas as pd
 
 
 
-test_df = pd.DataFrame({
+testdf = pd.DataFrame({
     'fruits' : ['Mango', 'Orange', 'Banana', 'Mango', 'Apple', 'Mango'],
-    'Vegetables' : ['Onion', 'xxx', 'xxx', 'xxx', 'xxx', 'xxx']})
+    'vegetables' : ['Onion', 'xxx', 'xxx', 'xxx', 'xxx', 'xxx'],
+    'price' : ['1', '2', '3', '4', '5', '6']})
 
-print(test_df)
+print(testdf)
 
-test_df["fruits"] = pd.to_numeric(test_df["fruits"])
+testdf["price"] = pd.to_numeric(testdf["price"])
 
-print(app.columns)
+testdf['fruits'] = testdf['fruits'].str.replace('a', 'A')
 
+print(testdf)
+
+testdf['fruits'] = testdf['fruits'].str.upper()
+
+print(testdf)
+
+unique_cat = print(testdf['fruits'].unique())
+
+num_uniq_cat = print(len(testdf['fruits'].unique()))
+
+# Count the number of apps in each 'Category' and sort them in descending order
+num_of_fruits_in_cat = testdf['fruits'].value_counts().sort_values(ascending=False)
+print(num_of_fruits_in_cat)
+
+df = pd.DataFrame({'A' : ['foo', 'bar', 'foo', 'bar', 'foo', 'bar'],
+                   'B' : [1, 2, 3, 4, 5, 6],
+                   'C' : [2.0, 5., 8., 1., 2., 9.]})
+print(df)
+
+grouped = df.groupby('A').filter(lambda x: len(x) > 2).reset_index()
+
+print(grouped)
+
+
+
+# import matplotlib.pyplot as plt
+# import random
+# x = [random.randrange(1, 10, 1) for i in range(10)]
+# y = random.sample(range(1, 11, 1), 10)
+# print(x, y)
+#
+# plt.plot(x, y)
+# plt.show()
+
+from functools import reduce
+
+product = [1, 2, 5, 10]
+result = reduce(lambda x, y: x * y, product)
+print('Result:')
+print(result)
+
+
+
+add_sq = (lambda x, y: x**2 + y**2)
+print('add_sq:')
+print(add_sq(5, 4))
+
+
+x = ['uer', 'gee', 'se', 'aeee']
+n_v = map(lambda w: w.count('e'), x)
+print('n_v: ')
+print(list(n_v))
+
+#
+import pandas as pd
+apps_with_duplicates = pd.read_csv('/Users/nitesh/Desktop/OneDrive - Cal State LA/data_science_practice/Test-1/The Android App Market on Google Play/datasets/apps.csv')
+apps = apps_with_duplicates.drop_duplicates()
+
+# Count the number of apps in each 'Category' and sort them in descending order
+num_apps_in_category = apps['Category'].value_counts().sort_values(ascending = False)
+
+print(num_apps_in_category)
+
+print(apps.head(3))
+
+# Subset for categories with at least 250 apps
+large_categories = apps.groupby('Category').filter(lambda x: len(x) >= 250).reset_index()
+
+print(large_categories)
+
+
+df1 = pd.DataFrame({'lkey': ['foo', 'bar', 'baz', 'bar'],
+                    'value': [1, 2, 3, 5]})
+
+df2 = pd.DataFrame({'rkey': ['foo', 'bar', 'baz', 'foo'],
+                    'value': [5, 6, 7, 8]})
+
+new_df = pd.merge(df1, df2, on='value')
+
+print(new_df)
+
+
+# Load user_reviews.csv
+reviews_df = pd.read_csv('/Users/nitesh/Desktop/OneDrive - Cal State LA/data_science_practice/Test-1/The Android App Market on Google Play/datasets/user_reviews.csv')
+
+print(reviews_df.columns)
+print('\n')
+print(reviews_df.head(3))
+print('\n')
+# Join and merge the two dataframe
+merged_df = pd.merge(apps,reviews_df, on = 'App', how = "inner")
+
+print(merged_df.head(3))
+print('\n')
+# Drop NA values from Sentiment and Translated_Review columns
+merged_df = merged_df.dropna(subset=['Sentiment', 'Translated_Review'])
+
+print(merged_df.head(3))
 
