@@ -1,5 +1,6 @@
 # Define count_entries()
 import pandas as pd
+
 #
 # tweets_df = pd.read_csv('tweets.csv')
 #
@@ -136,11 +137,10 @@ import pandas as pd
 # print(result1)
 
 
-
 testdf = pd.DataFrame({
-    'fruits' : ['Mango', 'Orange', 'Banana', 'Mango', 'Apple', 'Mango'],
-    'vegetables' : ['Onion', 'xxx', 'xxx', 'xxx', 'xxx', 'xxx'],
-    'price' : ['1', '2', '3', '4', '5', '6']})
+    'fruits': ['Mango', 'Orange', 'Banana', 'Mango', 'Apple', 'Mango'],
+    'vegetables': ['Onion', 'xxx', 'xxx', 'xxx', 'xxx', 'xxx'],
+    'price': ['1', '2', '3', '4', '5', '6']})
 
 print(testdf)
 
@@ -162,16 +162,14 @@ num_uniq_cat = print(len(testdf['fruits'].unique()))
 num_of_fruits_in_cat = testdf['fruits'].value_counts().sort_values(ascending=False)
 print(num_of_fruits_in_cat)
 
-df = pd.DataFrame({'A' : ['foo', 'bar', 'foo', 'bar', 'foo', 'bar'],
-                   'B' : [1, 2, 3, 4, 5, 6],
-                   'C' : [2.0, 5., 8., 1., 2., 9.]})
+df = pd.DataFrame({'A': ['foo', 'bar', 'foo', 'bar', 'foo', 'bar'],
+                   'B': [1, 2, 3, 4, 5, 6],
+                   'C': [2.0, 5., 8., 1., 2., 9.]})
 print(df)
 
 grouped = df.groupby('A').filter(lambda x: len(x) > 2).reset_index()
 
 print(grouped)
-
-
 
 # import matplotlib.pyplot as plt
 # import random
@@ -189,12 +187,9 @@ result = reduce(lambda x, y: x * y, product)
 print('Result:')
 print(result)
 
-
-
-add_sq = (lambda x, y: x**2 + y**2)
+add_sq = (lambda x, y: x ** 2 + y ** 2)
 print('add_sq:')
 print(add_sq(5, 4))
-
 
 x = ['uer', 'gee', 'se', 'aeee']
 n_v = map(lambda w: w.count('e'), x)
@@ -203,11 +198,13 @@ print(list(n_v))
 
 #
 import pandas as pd
-apps_with_duplicates = pd.read_csv('/Users/nitesh/Desktop/OneDrive - Cal State LA/data_science_practice/Test-1/The Android App Market on Google Play/datasets/apps.csv')
+
+apps_with_duplicates = pd.read_csv(
+    '/Users/nitesh/Desktop/OneDrive - Cal State LA/data_science_practice/Test-1/The Android App Market on Google Play/datasets/apps.csv')
 apps = apps_with_duplicates.drop_duplicates()
 
 # Count the number of apps in each 'Category' and sort them in descending order
-num_apps_in_category = apps['Category'].value_counts().sort_values(ascending = False)
+num_apps_in_category = apps['Category'].value_counts().sort_values(ascending=False)
 
 print(num_apps_in_category)
 
@@ -217,7 +214,6 @@ print(apps.head(3))
 large_categories = apps.groupby('Category').filter(lambda x: len(x) >= 250).reset_index()
 
 print(large_categories)
-
 
 df1 = pd.DataFrame({'lkey': ['foo', 'bar', 'baz', 'bar'],
                     'value': [1, 2, 3, 5]})
@@ -229,16 +225,16 @@ new_df = pd.merge(df1, df2, on='value')
 
 print(new_df)
 
-
 # Load user_reviews.csv
-reviews_df = pd.read_csv('/Users/nitesh/Desktop/OneDrive - Cal State LA/data_science_practice/Test-1/The Android App Market on Google Play/datasets/user_reviews.csv')
+reviews_df = pd.read_csv(
+    '/Users/nitesh/Desktop/OneDrive - Cal State LA/data_science_practice/Test-1/The Android App Market on Google Play/datasets/user_reviews.csv')
 
 print(reviews_df.columns)
 print('\n')
 print(reviews_df.head(3))
 print('\n')
 # Join and merge the two dataframe
-merged_df = pd.merge(apps,reviews_df, on = 'App', how = "inner")
+merged_df = pd.merge(apps, reviews_df, on='App', how="inner")
 
 print(merged_df.head(3))
 print('\n')
@@ -247,3 +243,59 @@ merged_df = merged_df.dropna(subset=['Sentiment', 'Translated_Review'])
 
 print(merged_df.head(3))
 
+d = {
+    'one': 1,
+    'two': 2,
+    'three': 3,
+    'four': 4
+}
+
+print(d['three'])
+
+s = "$>$Python"
+
+import numpy as np
+
+z = np.array([[1, 2, 3],
+              [4, 5, 6]])
+print(z[0][0])
+
+
+
+name = 'classification'
+
+print(name.count('s'))
+
+a = np.array([1,2,3])
+b = np.array([4,5,6])
+
+c = np.transpose((a, b))
+print(c)
+
+x = np.array([1, 2, 3, 0 , 5])
+bool_x = x == 3
+print(bool_x)
+
+x = [1, 2, 3]
+x.remove(3)
+print(x)
+
+x = ['a', 'b', 'c', 'a', 'e']
+print(x.count('a'))
+
+dict_gen = {num: num * 2 for num in range(5)}
+
+print(dict_gen)
+
+def po(x, y):
+    return x, y
+print(po(0, 1))
+
+d = {
+    'one': 1,
+    'two': 2,
+    'three': 3,
+    'four': 4
+}
+
+d[['one']['three']]
