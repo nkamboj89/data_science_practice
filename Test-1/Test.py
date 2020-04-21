@@ -300,32 +300,175 @@
 #
 # d[['one']['three']]
 
-class Dog:
-    def __init__(self):
-        pass
+# class Dog:
+#     def __init__(self):
+#         pass
+#
+#     def bark(self):
+#         return "bark bark bark bark bark bark..."
+#
+#
+# d = Dog()
+# d.bark()
+#
+# d = {
+#     'apple': 1,
+#     'banana': 2,
+#     'coconut': 3
+# }
+# d.pop('coconut')
+# print(d)
+#
+#
+# flash1 = ['jay garrick', 'barry allen', 'wally west', 'bart allen']
+# for p in flash1:
+#     pass
+#
+# superhero = iter(flash1)
+# print(next(superhero))
+# print(next(superhero))
+# print(next(superhero))
+# print(next(superhero))
+#
+# test = enumerate(flash1)
+# print('This is list : ' + str(list(test)))
+#
 
-    def bark(self):
-        return "bark bark bark bark bark bark..."
+#
+# mutants = ['charles xavier',
+#             'bobby drake',
+#             'kurt wagner',
+#             'max eisenhardt',
+#             'kitty pryde']
+#
+# print(list(enumerate(mutants)))
+#
+# a = ('1', '2')
+# b = ('a', 'b')
+# c = zip(a, b)
+# # print('This is list: ' + str(list(c)))
+# # for v1, v2 in c:
+# #     print(v1, v2)
+#
+# a1, a2 = zip(*c)
+#
+# print(a1)
+# print(a2)
+
+# A = [list(range(0, 11))]
+# print(type(A))
+from typing import Tuple
+
+import pandas as pd
+#
+# a = pd.DataFrame({
+#     'A' : [list(range(0, 11))],
+#     'B' : [list(range(20, 41))]
+# })
+#
+# total = 0
+# for val in a:
+#     print(val['A'])
 
 
-d = Dog()
-d.bark()
+df = pd.DataFrame({'A': ['foo', 'bar', 'foo', 'bar', 'foo', 'bar'],
+                   'B': [1, 2, 3, 4, 5, 6],
+                   'C': [2.0, 5., 8., 1., 2., 9.]})
 
-d = {
-    'apple': 1,
-    'banana': 2,
-    'coconut': 3
-}
-d.pop('coconut')
-print(d)
+print(df)
+
+for x in df['B']:
+    print('This is iteration value for B :  ' + str(x))
+#
+# for x,k in df.reset_index().iterrows():
+#     print(x,k)
+#     print('New')
+
+itr = [x*2 for x in range(0,10,2)]
+print(itr)
+
+name = [x[0] for x in 'Nitesh']
+print(name)
+
+# y = 23456
+# num = [x[0]for x in y]
+# print(num)
+
+# Create a 5 x 5 matrix using a list of lists: matrix
+matrix1 = [[col,col,col,col] for col in range(5)]
+# Print the matrix
+for y in matrix1:
+    print(y)
+
+matrix = [[col for col in range(5)] for row in range(5)]
+
+for x in matrix:
+    print(x)
+
+a = [[x for x in range(2)] for y in range(2)]
+
+for c in a:
+    print(c)
+
+def test_gen(n):
+    """Returns sequence of numbers till n"""
+    i = 0
+    while i < n:
+        yield i
+        i += 1
+
+print(test_gen(3))
+
+for i in test_gen(4):
+    print(i)
+
+# List of strings
+fellowship = ['frodo', 'samwise', 'merry', 'aragorn', 'legolas', 'boromir', 'gimli']
+
+# List comprehension
+fellow1 = [member for member in fellowship if len(member) >= 7]
+
+# Generator expression
+fellow2 = (member for member in fellowship if len(member) >= 7)
+
+for i in fellow1:
+    print(type(fellow1))
+    print(i)
+
+for i in fellow2:
+    print(type(fellow2))
+    print(i)
+
+alpha = ['a', 'b']
+chra = [1, 2]
+z = zip(alpha, chra)
+print(list(z))
+#
+# print(*z)
+#
+# for z1, z2 in zip(alpha, chra):
+#     print(z1, z2)
+print(alpha[0:1])
+
+row_list = [['Arab World', 'ARB', 'Adolescent fertility rate (births per 1,000 women ages 15-19)', 'SP.ADO.TFRT', '1960', '133.56090740552298'],
+['China World', 'ARB', 'Adolescent fertility rate (births per 1,000 women ages 15-19)', 'SP.ADO.TFRT', '1960', '133.56090740552298']]
+
+print([x for x in row_list])
 
 
-flash1 = ['jay garrick', 'barry allen', 'wally west', 'bart allen']
-for p in flash1:
-    pass
+df = pd.DataFrame({'A': ['foo', 'foo', 'foo', 'foo', 'foo', 'bar'],
+                   'B': [1, 2, 3, 4, 5, 6],
+                   'C': [2.0, 5., 8., 1., 2., 9.]})
 
-superhero = iter(flash1)
-print(next(superhero))
-print(next(superhero))
-print(next(superhero))
-print(next(superhero))
+a = df[df['A'] == 'bar']
+print(a)
+
+# a = (1.1, 2.2)
+#
+# print([int(x[0]*x[1]*0.01) for x in a])
+
+x = [2, 4, 1, 5]
+
+sq = {y:y**2 for y in x}
+
+print(sq)
