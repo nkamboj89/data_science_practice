@@ -360,6 +360,7 @@
 from typing import Tuple
 
 import pandas as pd
+
 #
 # a = pd.DataFrame({
 #     'A' : [list(range(0, 11))],
@@ -384,7 +385,7 @@ for x in df['B']:
 #     print(x,k)
 #     print('New')
 
-itr = [x*2 for x in range(0,10,2)]
+itr = [x * 2 for x in range(0, 10, 2)]
 print(itr)
 
 name = [x[0] for x in 'Nitesh']
@@ -395,7 +396,7 @@ print(name)
 # print(num)
 
 # Create a 5 x 5 matrix using a list of lists: matrix
-matrix1 = [[col,col,col,col] for col in range(5)]
+matrix1 = [[col, col, col, col] for col in range(5)]
 # Print the matrix
 for y in matrix1:
     print(y)
@@ -410,12 +411,14 @@ a = [[x for x in range(2)] for y in range(2)]
 for c in a:
     print(c)
 
+
 def test_gen(n):
     """Returns sequence of numbers till n"""
     i = 0
     while i < n:
         yield i
         i += 1
+
 
 print(test_gen(3))
 
@@ -450,11 +453,13 @@ print(list(z))
 #     print(z1, z2)
 print(alpha[0:1])
 
-row_list = [['Arab World', 'ARB', 'Adolescent fertility rate (births per 1,000 women ages 15-19)', 'SP.ADO.TFRT', '1960', '133.56090740552298'],
-['China World', 'ARB', 'Adolescent fertility rate (births per 1,000 women ages 15-19)', 'SP.ADO.TFRT', '1960', '133.56090740552298']]
+row_list = [
+    ['Arab World', 'ARB', 'Adolescent fertility rate (births per 1,000 women ages 15-19)', 'SP.ADO.TFRT', '1960',
+     '133.56090740552298'],
+    ['China World', 'ARB', 'Adolescent fertility rate (births per 1,000 women ages 15-19)', 'SP.ADO.TFRT', '1960',
+     '133.56090740552298']]
 
 print([x for x in row_list])
-
 
 df = pd.DataFrame({'A': ['foo', 'foo', 'foo', 'foo', 'foo', 'bar'],
                    'B': [1, 2, 3, 4, 5, 6],
@@ -467,8 +472,110 @@ print(a)
 #
 # print([int(x[0]*x[1]*0.01) for x in a])
 
+
+a = [['a', 'b'],
+     ['c', 'd']]
+
+print([x[-1] for x in a])
+
+x = [1, 2, 3]
+x_it = iter(x)
+next(x_it)
+next(x_it)
+next(x_it)
+# print(next(x_it))
+
+a = iter('Nitesh')
+print(*a)
+
+name = ['nitesh', 'kamboj']
+
+
+def t_u(x):
+    for i in x:
+        yield i.upper()
+
+
+print(next(t_u(name)))
+print(next(t_u(name)))
+
+lst = [-1, -2, 3, -4, 5, 6, -7]
+print(list(x for x in lst if x == -1))
+print(list(x if x == -1 else "pass" for x in lst))
+#
+# x = 123
+# print([y * 2 for y in x])
+
+
 x = [2, 4, 1, 5]
 
-sq = {y:y**2 for y in x}
+sq = {y: y ** 2 for y in x}
 
 print(sq)
+
+# def add_two(x: int)-> int :
+#   return x + 2
+#
+# print(type(add_two(1)))
+#
+# x = [y for y in range(2)]
+#
+# print(next(x))
+a = {1, 2, 3, 4}
+b = {3, 4, 5, 6}
+
+print(a.difference(b))
+
+print([s.upper() for s in ['hello', 'world']])
+
+f = lambda x, y: x * y
+print(f(3, 3))
+
+fruits = {
+    'apple': 1,
+    'banana': 2,
+    'coconut': 3
+}
+
+fruits.pop('apple')
+print(fruits)
+
+a = {1, 2, 3, 4}
+b = {3, 4, 5, 6}
+
+print(a.union(b),'\n\n' ,a.difference(b))
+
+df0 = pd.DataFrame({'Month': ['Jan', 'Mar', 'Feb', 'Apr'],
+                   'Temp': [123, 456, 789, 124]}).set_index(['Month'])
+
+print(df0)
+print('# Sort the index of df in alphabetical order', '\n', df0.sort_index())
+
+df = pd.DataFrame({'Month': ['Jan', 'Mar', 'Feb', 'Apr'],
+                   'Temp': [123, 456, 789, 124]})
+
+print('Sort df0 numerically using the values of Temp', '\n', df.sort_values('Temp'))
+
+# df1 = df0.set_index(df0['Month'])
+# print(df1)
+#
+# # Sort the index of weather1 in alphabetical order
+# print('# Sort the index of df in alphabetical order', '\n', df1.sort_index())
+df_1 = pd.DataFrame({'Month': ['Jan', 'Mar', 'Feb', 'Apr'],
+                   'Temp': [123, 456, 789, 124]}, index=list(range(0, 8, 2)))
+print(df_1)
+
+df2 = pd.DataFrame({'Month': ['Jan', 'Mar', 'Feb', 'Apr'],
+                   'Temp': [123, 456, 789, 124]}).set_index(['Temp'])
+
+print(df2)
+print('# Sort the index of df2 in alphabetical order', '\n', df2.sort_index())
+a = df.iloc[::2,:]
+print(a)
+
+a = "POWER BI DASHBOARD DEVELOPER"
+print(a.title())
+
+
+a = pd.read_csv('')
+print(a.head())
