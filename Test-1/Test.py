@@ -577,5 +577,11 @@ a = "POWER BI DASHBOARD DEVELOPER"
 print(a.title())
 
 
-a = pd.read_csv('')
+a = pd.read_csv('covid-statistics-by-us-states-daily-updates.csv', index_col=0, comment=)
+print(a.head())
+b = a.sort_index(ascending=False)
+print(b.head())
+a['test_col'] = 'NaN'
+print(a.head())
+a.pop('test_col')
 print(a.head())
