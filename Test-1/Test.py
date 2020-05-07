@@ -357,6 +357,7 @@
 
 # A = [list(range(0, 11))]
 # print(type(A))
+import datetime
 from typing import Tuple
 
 import pandas as pd
@@ -543,10 +544,10 @@ print(fruits)
 a = {1, 2, 3, 4}
 b = {3, 4, 5, 6}
 
-print(a.union(b),'\n\n' ,a.difference(b))
+print(a.union(b), '\n\n', a.difference(b))
 
 df0 = pd.DataFrame({'Month': ['Jan', 'Mar', 'Feb', 'Apr'],
-                   'Temp': [123, 456, 789, 124]}).set_index(['Month'])
+                    'Temp': [123, 456, 789, 124]}).set_index(['Month'])
 
 print(df0)
 print('# Sort the index of df in alphabetical order', '\n', df0.sort_index())
@@ -562,26 +563,119 @@ print('Sort df0 numerically using the values of Temp', '\n', df.sort_values('Tem
 # # Sort the index of weather1 in alphabetical order
 # print('# Sort the index of df in alphabetical order', '\n', df1.sort_index())
 df_1 = pd.DataFrame({'Month': ['Jan', 'Mar', 'Feb', 'Apr'],
-                   'Temp': [123, 456, 789, 124]}, index=list(range(0, 8, 2)))
+                     'Temp': [123, 456, 789, 124]}, index=list(range(0, 8, 2)))
 print(df_1)
 
-df2 = pd.DataFrame({'Month': ['Jan', 'Mar', 'Feb', 'Apr'],
-                   'Temp': [123, 456, 789, 124]}).set_index(['Temp'])
+# df2 = pd.DataFrame({'Month': ['Jan', 'Mar', 'Feb', 'Apr'],
+#                    'Temp': [123, 456, 789, 124]}).set_index(['Temp'])
+#
+# print(df2)
+# print('# Sort the index of df2 in alphabetical order', '\n', df2.sort_index())
+# a = df.iloc[::2,:]
+# print(a)
+#
+# a = "POWER BI DASHBOARD DEVELOPER"
+# print(a.title())
+#
+#
+# a = pd.read_csv('covid-statistics-by-us-states-daily-updates.csv', index_col=0, comment=)
+# print(a.head())
+# b = a.sort_index(ascending=False)
+# print(b.head())
+# a['test_col'] = 'NaN'
+# print(a.head())
+# a.pop('test_col')
+# print(a.head())
+#
+# enumerate(w)
 
-print(df2)
-print('# Sort the index of df2 in alphabetical order', '\n', df2.sort_index())
-a = df.iloc[::2,:]
-print(a)
-
-a = "POWER BI DASHBOARD DEVELOPER"
-print(a.title())
+my_list = ['apple', 'banana', 'grapes', 'pear']
+for c, value in enumerate(my_list):
+    print(c, value)
 
 
-a = pd.read_csv('covid-statistics-by-us-states-daily-updates.csv', index_col=0, comment=)
-print(a.head())
-b = a.sort_index(ascending=False)
-print(b.head())
-a['test_col'] = 'NaN'
-print(a.head())
-a.pop('test_col')
-print(a.head())
+def twoSum(nums, target):
+    d = {}
+    for i, num in enumerate(nums):
+        n = target - num
+        if n not in d:
+            d[num] = i
+        else:
+            return [d[n], i]
+
+
+print(twoSum([1, 7, 3, 4, 2], 7))
+
+
+# def twoSum_1(nums, target):
+#     seen = {}
+#     for i, v in enumerate(nums):
+#         remaining = target - v
+#         if remaining in seen:
+#             return [seen[remaining], i]
+#         seen[v] = i
+#     return []
+
+
+# twoSum_1(nums=[2, 7, 11, 15], target=9)
+
+# Writing new class 'USER'
+class User:
+    def __init__(self, full_name, birthday):
+        self.name = full_name
+        self.birthday = birthday
+
+
+user = User('Nitesh Kamboj', 19892811)
+
+print(user.name, user.birthday)
+
+class User_fn_ln:
+    def __init__(self, full_name, birthday):
+        self.name = full_name
+        self.birthday = birthday
+
+        #Extracting first and last name
+        self.name_pieces = full_name.split(" ")
+        self.first_name = self.name_pieces[0]
+        self.last_name = self.name_pieces[-1]
+
+user = User_fn_ln('Nitesh Kamboj', "19892811")
+print(user.name_pieces)
+print(user.first_name)
+
+class User_fn_ln_age:
+    def __init__(self, full_name, birthday):
+        self.name = full_name
+        self.birthday = birthday
+
+        #Extracting first and last name
+        self.name_pieces = full_name.split(" ")
+        self.first_name = self.name_pieces[0]
+        self.last_name = self.name_pieces[-1]
+
+    def age(self):
+        today = datetime.date.today()
+        yyyy = int(self.birthday[0:-4])
+        mm = int(self.birthday[4:6])
+        dd = int(self.birthday[6:8])
+        dob = datetime.date(yyyy, mm, dd)
+        age_in_days = (today-dob).days
+        age_in_years: int = age_in_days//365
+        return int(age_in_years)
+
+
+user = User_fn_ln_age('Nitesh Kamboj', "19891128")
+print(user.age())
+
+class MyClass:
+    """This Statement is used without '__doc__' field"""
+    # __doc__ = "This statement is used with '__doc__' field"
+    i = 12345
+
+    def f():
+        print('Hello World')
+
+
+MyClass.f()
+print(MyClass.__doc__)

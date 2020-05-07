@@ -16,7 +16,9 @@ def fetch_words(url):
 
 
 def print_items(items):
-    for item in items:
+    for item in\
+
+            items:
         print("This is the itme : ", item)
 
 
