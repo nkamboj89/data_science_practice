@@ -676,6 +676,5 @@ class MyClass:
     def f():
         print('Hello World')
 
-
 MyClass.f()
 print(MyClass.__doc__)
