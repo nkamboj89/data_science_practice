@@ -51,7 +51,7 @@ for col in cols_to_clean:
 
 # 3. Exploring app categories
 
-3. Exploring app categories
+# 3. Exploring app categories
 """With more than 1 billion active users in 190 countries around the world, Google Play continues to be an important 
 distribution platform to build a global audience. For businesses to get their apps in front of users, it's important to 
 make them more quickly and easily discoverable on Google Play. To improve the overall search experience, 

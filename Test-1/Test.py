@@ -678,3 +678,41 @@ class MyClass:
 
 MyClass.f()
 print(MyClass.__doc__)
+
+print(str.__doc__)
+
+x = ["NITESH", "KAMBOJ"]
+
+def caps(li):
+
+    def inner(w):
+        return w.capitalize()
+    return([inner(li[0]), inner(li[1])])
+print(caps(x))
+
+st1 = "AB"
+st2 = "34"
+
+var = [x + y for y in st1 for x in st2]
+print(var)
+#
+# def nth_root(n):
+#     def actl_root(x):
+#         root = x ** 1/n
+#         return root
+#     return actl_root
+# print(nth_root((3)(27)))
+
+print(list(range(0, 5)))
+a = range(0, 5)
+print(list(a))
+
+a = iter('Nitesh')
+print(*a)
+print(next(a))
+
+x = [2, 4, 1, 5]
+square = {a: a**2 for a in x}
+
+x = 123
+print([y *2 for y in x])
