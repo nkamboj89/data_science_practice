@@ -707,12 +707,21 @@ print(list(range(0, 5)))
 a = range(0, 5)
 print(list(a))
 
-a = iter('Nitesh')
-print(*a)
-print(next(a))
+# a = iter('Nitesh')
+# print(*a)
+# # print(next(a))
+#
+# x = [2, 4, 1, 5]
+# square = {a: a**2 for a in x}
+#
+# x = 123
+# print([y *2 for y in x])
 
-x = [2, 4, 1, 5]
-square = {a: a**2 for a in x}
+df = pd.DataFrame({'eggs': [123, 456, 789, 124],
+                   'salt': [234, 123, 456, 124],
+                   'spam': [123, 222, 333, 444]},
+                  index= ['Jan', 'Mar', 'Feb', 'Apr'])
 
-x = 123
-print([y *2 for y in x])
+df.index.names = ['Month']
+
+print(df)
